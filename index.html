@@ -164,6 +164,21 @@
             transform: scale(1.1);
         }
 
+        .join-button {
+            background: inherit; /* Use the same gradient as the server tile */
+            color: #000; /* Text color */
+            padding: 10px 20px;
+            border: 2px solid black; /* Black outline */
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .join-button:hover {
+            transform: translateY(-2px);
+        }
+
         /* Fade-in animation for elements */
         @keyframes fadeIn {
             0% { opacity: 0; }
@@ -199,33 +214,25 @@
     </div>
 
     <div class="servers-grid" id="serversGrid">
-        <div class="server-card" style="background: linear-gradient(135deg, #3C5B98, #1960EC);">
-            <img src="https://cdn.discordapp.com/icons/937924877023838218/3d81a18e6c7b83a5a8fbd3b68f9bbebc.webp" alt="Mythical Community" class="server-logo">
+        <div class="server-card" style="background: linear-gradient(135deg, #4D89FF, #1960EA);">
+            <img src="https://cdn.discordapp.com/attachments/1275874438973231194/1296230296164892776/mysticaladslogo.png?ex=67118809&is=67103689&hm=f9bb9c877d590e05cfcf45535621625f9cdeff9dab4924967aaf525cf41ed73f&" alt="Server 1" class="server-logo">
             <h3>Mystical Community</h3>
-            <p>Join today!</p>
+            <a href="mystical" class="join-button">Join Now</a>
         </div>
-        <div class="server-card" style="background: linear-gradient(135deg, #7FDE8C, #0E65ED);">
-            <img src="https://cdn.discordapp.com/icons/940058069189181541/aa3183f9001f81663d64df48ae1c268e.webp" alt="Global Server" class="server-logo">
+        <div class="server-card" style="background: linear-gradient(135deg, #1264F0, #ABDC92);">
+            <img src="https://cdn.discordapp.com/icons/990657659139154000/22227a30ee1bd71136c48a22b2c6e67e.webp" alt="Server 2" class="server-logo">
             <h3>Global Advertising</h3>
-            <p>Advertise Your Server!</p>
+            <a href="global" class="join-button">Join Now</a>
         </div>
-        <!-- Add more server cards here -->
+        <div class="server-card" style="background: linear-gradient(135deg, #D7D078, #585937);">
+            <img src="https://cdn.discordapp.com/attachments/1275874438973231194/1296230354780295168/dllogo.png?ex=67118817&is=67103697&hm=c01a39ef402878b4b838f72d0aa29b8417b5528004920e28631ffa05f1210b8f&" alt="Server 3" class="server-logo">
+            <h3>Dislinks Support</h3>
+            <a href="dislinks" class="join-button">Join Now</a>
+        </div>
     </div>
 
-    <script>
-        const searchBox = document.getElementById('searchBox');
-        const serversGrid = document.getElementById('serversGrid');
-
-        searchBox.addEventListener('input', function() {
-            const query = searchBox.value.toLowerCase();
-            const serverCards = serversGrid.getElementsByClassName('server-card');
-
-            for (let i = 0; i < serverCards.length; i++) {
-                const card = serverCards[i];
-                const cardText = card.innerText.toLowerCase();
-                card.style.display = cardText.includes(query) ? 'block' : 'none';
-            }
-        });
-    </script>
+    <footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.8); color: #C6C170; position: relative;">
+        <p>&copy; 2024 Dislinks.me</p>
+    </footer>
 </body>
 </html>
