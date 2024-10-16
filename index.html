@@ -26,92 +26,76 @@
     <style>
         body {
             margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             font-family: Arial, sans-serif;
             background-color: #000000; /* Main color */
             color: #C6C170; /* Accent color */
-            text-align: center;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background-color: #1A1A1A;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             position: relative;
         }
 
-        /* Header styles */
-        header {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-        }
-
-        /* Burger menu icon */
-        .burger {
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-        }
-
-        .burger div {
-            height: 3px;
-            background-color: #C6C170; /* Accent color */
-            transition: all 0.3s;
-        }
-
-        /* Menu overlay */
-        .menu {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-        }
-
-        .menu a {
+        .logo {
             color: #C6C170;
-            font-size: 2rem;
-            margin: 20px 0;
-            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        /* Styling the main heading */
+        .burger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #C6C170;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: #C6C170;
+            text-decoration: none;
+            padding: 10px 15px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #C6C170;
+            color: #000000;
+            border-radius: 5px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+        }
+
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* Styling the description */
         p {
             font-size: 1.5rem;
             margin-bottom: 30px;
             animation: fadeIn 1.5s ease-in-out;
         }
 
-        /* Styling the Discord link card */
-        .discord-card {
-            background-color: #C6C170;
-            color: #000000;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin-top: 20px;
-        }
-
-        /* Styling the button */
         .button {
             background-color: #C6C170; /* Accent color */
             color: #000000; /* Text color */
@@ -125,46 +109,76 @@
             display: inline-block;
         }
 
-        /* Button hover effect */
         .button:hover {
             background-color: #AFAF5D; /* Slightly darker shade for hover */
         }
 
-        /* Fade-in animation for elements */
+        .embed {
+            background: rgba(198, 193, 112, 0.1);
+            border: 1px solid #C6C170;
+            border-radius: 5px;
+            padding: 20px;
+            width: 80%;
+            margin: 20px 0;
+        }
+
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .burger {
+                display: block;
+            }
+
+            nav {
+                display: none; /* Hide nav on mobile */
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                background-color: #1A1A1A;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                padding: 10px 20px;
+                width: 100%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="burger" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <div class="logo">Dislinks</div>
+        <div class="burger" onclick="toggleMenu()">&#9776;</div>
+        <nav id="nav">
+            <a href="https://discord.gg/BQUbURy5VG">Support Server</a>
+            <a href="https://dislinks.me/mystical">Mystical Community</a>
+        </nav>
     </header>
     
-    <div class="menu" id="menu">
-        <a href="https://discord.gg/YourSupportServerLink">Support Server</a>
-        <a href="https://dislinks.me/mystical">Mystical Community</a>
-        <a href="javascript:void(0);" onclick="toggleMenu()">Close</a>
+    <div class="content">
+        <h1>Find your new community</h1>
+        <p>Discover and join the best Discord servers! Explore categorized communities and grow your own server!</p>
+        <div class="embed">
+            <h2>Mystical Community</h2>
+            <p>Join our amazing community!</p>
+            <a href="https://discord.gg/mystical-community-937924877023838218" class="button">Join Now</a>
+        </div>
     </div>
-
-    <h1>Find your new community</h1>
-    <p>Discover and join the best Discord servers! Explore categorized communities and grow your own server!</p>
-    
-    <div class="discord-card">
-        <p><strong>Mystical Community:</strong> <a href="https://dislinks.me/mystical" style="color: #000000;">https://dislinks.me/mystical</a></p>
-    </div>
-    
-    <a href="https://discord.gg/BQUbURy5VG" class="button">Join Now</a>
 
     <script>
         function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+            const nav = document.getElementById('nav');
+            nav.classList.toggle('active');
         }
     </script>
 </body>
