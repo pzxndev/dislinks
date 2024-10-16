@@ -29,12 +29,15 @@
             margin: 0;
             font-family: Arial, sans-serif;
             color: #C6C170; /* Accent color */
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 30%, rgba(60, 60, 60, 0.85));
+            background: linear-gradient(to top, #000000, #DCD378); /* Changed gradient */
             overflow-x: hidden;
         }
 
         header {
-            position: relative;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -44,35 +47,15 @@
             z-index: 10;
         }
 
-        .burger-menu {
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .burger-menu div {
-            width: 30px;
-            height: 4px;
-            background-color: #C6C170;
-            margin: 5px;
-            transition: all 0.3s ease;
-        }
-
         .nav {
-            display: none;
-            position: absolute;
-            top: 60px;
-            left: 0;
-            background-color: rgba(0, 0, 0, 0.9);
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            z-index: 10;
+            display: flex;
+            align-items: center;
         }
 
         .nav a {
             color: #C6C170;
             text-decoration: none;
-            display: block;
+            margin: 0 10px;
             padding: 10px;
             transition: background-color 0.3s;
         }
@@ -88,10 +71,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: calc(100vh - 120px); /* Adjusted for header */
+            height: calc(100vh - 100px); /* Adjusted for header */
             text-align: center;
             padding: 20px;
             animation: fadeIn 1s ease-in;
+            margin-top: 60px; /* Margin for fixed header */
         }
 
         h1 {
@@ -122,6 +106,24 @@
         .button:hover {
             background-color: #AFAF5D; /* Slightly darker shade for hover */
             transform: translateY(-2px);
+        }
+
+        /* Search Section */
+        .search-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .search-section h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .search-box {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #C6C170;
+            border-radius: 5px;
         }
 
         /* Grid for servers */
@@ -169,21 +171,29 @@
 </head>
 <body>
     <header>
-        <div class="burger-menu" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-        <nav class="nav" id="navMenu">
+        <div class="nav">
+            <img src="https://cdn.discordapp.com/attachments/1296123512746016789/1296167019304976404/image.png?ex=67114d1b&is=670ffb9b&hm=2af758fa9227ed372107c0ebf00d7e1afc6e180060908bbf9d893eb13f0c00b1" alt="Logo" style="width: 40px; margin-right: 10px;">
+            <span>Find your new community</span>
+            <a href="#">Browse Servers</a>
+            <a href="#">Guides</a>
+            <a href="#">Get Members</a>
             <a href="https://discord.gg/mystical-community-937924877023838218">Support Server</a>
-            <a href="#">Another Link</a>
-        </nav>
+        </div>
+        <div class="nav">
+            <a href="#">Add Your Server</a>
+            <a href="#">Login</a>
+        </div>
     </header>
 
     <div class="main-content">
-        <h1>Find your new community</h1>
+        <h1>Welcome to Dislinks</h1>
         <p>Discover and join the best Discord servers! Explore categorized communities and grow your own server!</p>
         <a href="https://discord.gg/BQUbURy5VG" class="button">Join Now</a>
+    </div>
+
+    <div class="search-section">
+        <h2>Search Discord Servers</h2>
+        <input type="text" class="search-box" placeholder="Search...">
     </div>
 
     <div class="servers-grid">
@@ -194,18 +204,16 @@
             <a href="https://dislinks.me/mystical" class="button">Join</a>
         </div>
         <div class="server-card">
-            <img src="https://cdn.discordapp.com/icons/990657659139154000/22227a30ee1bd71136c48a22b2c6e67e.webp" alt="Global Advertising" class="server-logo">
-            <h3>Global Advertising</h3>
-            <p>Advertise Your Server!!</p>
+            <img src="https://cdn.discordapp.com/icons/1020126239324909609/84b74da7878c97934f8700a93fcbdb9b.webp" alt="Global Community" class="server-logo">
+            <h3>Global Community</h3>
+            <p>Connect with friends around the world!</p>
             <a href="https://dislinks.me/global" class="button">Join</a>
         </div>
+        <!-- More server cards can be added here -->
     </div>
 
     <script>
-        function toggleMenu() {
-            const nav = document.getElementById('navMenu');
-            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
-        }
+        // Optional: Add JavaScript for floating effects, or other interactivity if needed
     </script>
 </body>
 </html>
