@@ -234,5 +234,26 @@
     <footer style="text-align: center; padding: 20px; background-color: rgba(0, 0, 0, 0.8); color: #C6C170; position: relative;">
         <p>&copy; 2024 Dislinks.me</p>
     </footer>
+    
+<script>
+        function filterServers() {
+            const searchBox = document.getElementById('searchBox');
+            const filter = searchBox.value.toLowerCase();
+            const serversGrid = document.getElementById('serversGrid');
+            const serverCards = serversGrid.getElementsByClassName('server-card');
+
+            for (let i = 0; i < serverCards.length; i++) {
+                const serverName = serverCards[i].getElementsByTagName('h3')[0];
+                if (serverName) {
+                    const txtValue = serverName.textContent || serverName.innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        serverCards[i].style.display = "";
+                    } else {
+                        serverCards[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>
