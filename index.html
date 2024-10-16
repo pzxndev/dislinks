@@ -137,11 +137,14 @@
         }
 
         .server-card {
+            border: 2px solid black; /* Black border */
             border-radius: 8px;
             padding: 20px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            background-color: rgba(77, 136, 255); /* Default background color */
+            background: linear-gradient(135deg, #4D88FF, #AAB4FF); /* Default gradient background */
         }
 
         .server-card:hover {
@@ -196,39 +199,32 @@
     </div>
 
     <div class="servers-grid" id="serversGrid">
-        <div class="server-card" style="background-color: rgba(77, 136, 255);"> <!-- Customizable Color -->
+        <div class="server-card" style="background: linear-gradient(135deg, #3C5B98, #1960EC);">
             <img src="https://cdn.discordapp.com/icons/937924877023838218/3d81a18e6c7b83a5a8fbd3b68f9bbebc.webp" alt="Mythical Community" class="server-logo">
             <h3>Mystical Community</h3>
-            <p>Join our community</p>
-            <a href="https://dislinks.me/mystical" class="button">Join Server</a>
+            <p>Join today!</p>
         </div>
-        <div class="server-card" style="background-color
-                <div class="server-card" style="background-color: rgba(77, 136, 255);">
-            <img src="https://cdn.discordapp.com/icons/990657659139154000/22227a30ee1bd71136c48a22b2c6e67e.webp" alt="Global Advertising" class="server-logo">
+        <div class="server-card" style="background: linear-gradient(135deg, #7FDE8C, #0E65ED);">
+            <img src="https://cdn.discordapp.com/icons/940058069189181541/aa3183f9001f81663d64df48ae1c268e.webp" alt="Global Server" class="server-logo">
             <h3>Global Advertising</h3>
-            <p>Advertise Your Server</p>
-            <a href="https://dislinks.me/global" class="button">Join Server</a>
+            <p>Advertise Your Server!</p>
         </div>
-        <!-- Add more server cards as needed -->
+        <!-- Add more server cards here -->
     </div>
 
     <script>
-        // Search functionality
         const searchBox = document.getElementById('searchBox');
         const serversGrid = document.getElementById('serversGrid');
-        const serverCards = serversGrid.getElementsByClassName('server-card');
 
         searchBox.addEventListener('input', function() {
-            const query = this.value.toLowerCase();
-            Array.from(serverCards).forEach(card => {
-                const serverName = card.querySelector('h3').textContent.toLowerCase();
-                const serverDescription = card.querySelector('p').textContent.toLowerCase();
-                if (serverName.includes(query) || serverDescription.includes(query)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            const query = searchBox.value.toLowerCase();
+            const serverCards = serversGrid.getElementsByClassName('server-card');
+
+            for (let i = 0; i < serverCards.length; i++) {
+                const card = serverCards[i];
+                const cardText = card.innerText.toLowerCase();
+                card.style.display = cardText.includes(query) ? 'block' : 'none';
+            }
         });
     </script>
 </body>
