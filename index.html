@@ -215,17 +215,17 @@
 
     <div class="servers-grid" id="serversGrid">
         <div class="server-card" style="background: linear-gradient(135deg, #4D89FF, #1960EA);">
-            <img src="https://cdn.discordapp.com/attachments/1275874438973231194/1296230296164892776/mysticaladslogo.png?ex=67118809&is=67103689&hm=f9bb9c877d590e05cfcf45535621625f9cdeff9dab4924967aaf525cf41ed73f&" alt="Server 1" class="server-logo">
+            <img src="https://cdn.discordapp.com/attachments/1275874438973231194/1296230296164892776/mysticaladslogo.png?ex=67118809&is=67103689&hm=f9bb9c877d590e05cfcf45535621625f9cdeff9dab4924967aaf525cf41ed73f&" alt="Mystical" class="server-logo">
             <h3>Mystical Community</h3>
             <a href="mystical" class="join-button">Join Now</a>
         </div>
         <div class="server-card" style="background: linear-gradient(135deg, #1264F0, #ABDC92);">
-            <img src="https://cdn.discordapp.com/icons/990657659139154000/22227a30ee1bd71136c48a22b2c6e67e.webp" alt="Server 2" class="server-logo">
+            <img src="https://cdn.discordapp.com/icons/990657659139154000/22227a30ee1bd71136c48a22b2c6e67e.webp" alt="Server 2" class="Global">
             <h3>Global Advertising</h3>
             <a href="global" class="join-button">Join Now</a>
         </div>
         <div class="server-card" style="background: linear-gradient(135deg, #D7D078, #585937);">
-            <img src="https://cdn.discordapp.com/attachments/1275874438973231194/1296230354780295168/dllogo.png?ex=67118817&is=67103697&hm=c01a39ef402878b4b838f72d0aa29b8417b5528004920e28631ffa05f1210b8f&" alt="Server 3" class="server-logo">
+            <img src="https://cdn.discordapp.com/attachments/1275874438973231194/1296230354780295168/dllogo.png?ex=67118817&is=67103697&hm=c01a39ef402878b4b838f72d0aa29b8417b5528004920e28631ffa05f1210b8f&" alt="Dislinks" class="server-logo">
             <h3>Dislinks Support</h3>
             <a href="dislinks" class="join-button">Join Now</a>
         </div>
@@ -235,25 +235,23 @@
         <p>&copy; 2024 Dislinks.me</p>
     </footer>
     
-<script>
+    <script>
         function filterServers() {
             const searchBox = document.getElementById('searchBox');
             const filter = searchBox.value.toLowerCase();
-            const serversGrid = document.getElementById('serversGrid');
-            const serverCards = serversGrid.getElementsByClassName('server-card');
+            const servers = document.getElementById('serversGrid').getElementsByClassName('server-card');
 
-            for (let i = 0; i < serverCards.length; i++) {
-                const serverName = serverCards[i].getElementsByTagName('h3')[0];
-                if (serverName) {
-                    const txtValue = serverName.textContent || serverName.innerText;
-                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                        serverCards[i].style.display = "";
-                    } else {
-                        serverCards[i].style.display = "none";
-                    }
+            for (let i = 0; i < servers.length; i++) {
+                const serverName = servers[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (serverName.includes(filter)) {
+                    servers[i].style.display = '';
+                } else {
+                    servers[i].style.display = 'none';
                 }
             }
         }
     </script>
+</body>
+</html>
 </body>
 </html>
