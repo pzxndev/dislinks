@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Favicon -->
-    <link rel="icon" href="https://cdn.discordapp.com/attachments/1296123512746016789/1296167019304976404/image.png?ex=67114d1b&is=670ffb9b&hm=2af758fa9227ed372107c0ebf00d7e1afc6e180060908bbf9d893eb13f0c00b1" type="image/png">
+    <link rel="icon" href="https://cdn.discordapp.com/attachments/1296123512746016789/1296167019304976404/image.png?ex=67114d1b&is=670ffb9b&hm=2af758fa9227ed372107c0ebf00d7e1afc6e180060908bbf9d893eb13f0c00b1">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Find your new community" />
@@ -29,7 +29,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
             color: #C6C170; /* Accent color */
-            background: linear-gradient(135deg, #000000 30%, #3c3c3c);
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 30%, rgba(60, 60, 60, 0.85));
             overflow-x: hidden;
         }
 
@@ -114,13 +114,14 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
             text-decoration: none;
             display: inline-block;
         }
 
         .button:hover {
             background-color: #AFAF5D; /* Slightly darker shade for hover */
+            transform: translateY(-2px);
         }
 
         /* Grid for servers */
@@ -145,6 +146,18 @@
         .server-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .server-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .server-logo:hover {
+            transform: scale(1.1);
         }
 
         /* Fade-in animation for elements */
@@ -175,11 +188,13 @@
 
     <div class="servers-grid">
         <div class="server-card">
+            <img src="https://cdn.discordapp.com/icons/937924877023838218/3d81a18e6c7b83a5a8fbd3b68f9bbebc.webp" alt="Mythical Community" class="server-logo">
             <h3>Mythical Community</h3>
             <p>Join our amazing community!</p>
             <a href="https://dislinks.me/mystical" class="button">Join</a>
         </div>
         <div class="server-card">
+            <img src="https://cdn.discordapp.com/icons/990657659139154000/22227a30ee1bd71136c48a22b2c6e67e.webp" alt="Global Advertising" class="server-logo">
             <h3>Global Advertising</h3>
             <p>Advertise Your Server!!</p>
             <a href="https://dislinks.me/global" class="button">Join</a>
