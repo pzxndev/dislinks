@@ -6,7 +6,7 @@
 
     <!-- Favicon -->
     <link rel="icon" href="https://cdn.discordapp.com/attachments/1296123512746016789/1296167019304976404/image.png?ex=67114d1b&is=670ffb9b&hm=2af758fa9227ed372107c0ebf00d7e1afc6e180060908bbf9d893eb13f0c00b1" type="image/png">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Find your new community" />
     <meta property="og:description" content="Discover and join the best Discord servers! Explore categorized communities and grow your own server!" />
@@ -24,7 +24,6 @@
     <meta name="twitter:url" content="https://dislinks.me/">
 
     <style>
-        /* Apply a black background */
         body {
             margin: 0;
             display: flex;
@@ -37,6 +36,55 @@
             color: #C6C170; /* Accent color */
             text-align: center;
             padding: 20px;
+            position: relative;
+        }
+
+        /* Header styles */
+        header {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Burger menu icon */
+        .burger {
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .burger div {
+            height: 3px;
+            background-color: #C6C170; /* Accent color */
+            transition: all 0.3s;
+        }
+
+        /* Menu overlay */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+        }
+
+        .menu a {
+            color: #C6C170;
+            font-size: 2rem;
+            margin: 20px 0;
+            text-decoration: none;
         }
 
         /* Styling the main heading */
@@ -51,6 +99,16 @@
             font-size: 1.5rem;
             margin-bottom: 30px;
             animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Styling the Discord link card */
+        .discord-card {
+            background-color: #C6C170;
+            color: #000000;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
         }
 
         /* Styling the button */
@@ -80,8 +138,34 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="burger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+    
+    <div class="menu" id="menu">
+        <a href="https://discord.gg/YourSupportServerLink">Support Server</a>
+        <a href="https://dislinks.me/mystical">Mystical Community</a>
+        <a href="javascript:void(0);" onclick="toggleMenu()">Close</a>
+    </div>
+
     <h1>Find your new community</h1>
     <p>Discover and join the best Discord servers! Explore categorized communities and grow your own server!</p>
+    
+    <div class="discord-card">
+        <p><strong>Mystical Community:</strong> <a href="https://dislinks.me/mystical" style="color: #000000;">https://dislinks.me/mystical</a></p>
+    </div>
+    
     <a href="https://discord.gg/BQUbURy5VG" class="button">Join Now</a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
 </body>
 </html>
